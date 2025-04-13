@@ -1,16 +1,75 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import MobileMenu from "@/components/MobileMenu";
+import { FaHome } from "react-icons/fa";
+import { FaUserFriends } from "react-icons/fa";
+import { MdAutoStories } from "react-icons/md";
+import { ClerkLoaded, ClerkLoading, SignedIn } from "@clerk/nextjs";
+import { SignedOut, UserButton } from "@clerk/clerk-react";
+import { IoPeople } from "react-icons/io5";
+import { BiSolidMessageSquareDetail } from "react-icons/bi";
+import { IoMdNotifications } from "react-icons/io";
+import { IoLogInSharp } from "react-icons/io5";
 function Navbar() {
   return (
     <div className=" h-24 flex items-center justify-between">
-      <div>
+      <div className="hidden md:flex gap-8 items-center font-medium">
         <Link href="/" className="font-bold text-xl text-blue-600">
           Social
         </Link>
       </div>
-      <div>2</div>
-      <div>
+      <div className="hidden md:flex gap-8 items-center font-medium">
+        <div className="flex gap-8 items-center md:flex ">
+          <Link
+            href="/"
+            className="hover:text-blue-600 flex items-center gap-2"
+          >
+            <FaHome width={24} height={24} />
+            Home Page
+          </Link>
+          <Link
+            href="/"
+            className="hover:text-blue-600 flex items-center gap-2"
+          >
+            <FaUserFriends width={24} height={24} />
+            Friends
+          </Link>
+          <Link
+            href="/"
+            className="hover:text-blue-600 flex items-center gap-2"
+          >
+            <MdAutoStories width={24} height={24} />
+            Stories
+          </Link>
+        </div>
+      </div>
+      <div className=" flex items-center xl:gap-8">
+        <ClerkLoading>
+          <div className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-gray-500 border-solid border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white " />
+        </ClerkLoading>
+        <ClerkLoaded>
+          <SignedIn>
+            <div className="cursor-pointer">
+              <IoPeople width={20} height={20} />
+            </div>
+            <div className="cursor-pointer">
+              <BiSolidMessageSquareDetail width={20} height={20} />
+            </div>
+            <div className="cursor-pointer">
+              <IoMdNotifications width={20} height={20} />
+            </div>
+            <UserButton />
+          </SignedIn>
+          <SignedOut>
+            <div className="flex items-center gap-2 cursor-pointer">
+              <IoLogInSharp width={24} height={24} />
+              <Link href="/sign-in" className=" font-medium">
+                Login/Register
+              </Link>
+            </div>
+          </SignedOut>
+        </ClerkLoaded>
         <MobileMenu />
       </div>
     </div>
