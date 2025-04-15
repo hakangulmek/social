@@ -9,13 +9,13 @@ const Comments = () => {
           width={40}
           height={40}
           alt=""
-          className="w-10 h-10 rounded-full"
+          className="w-8 h-8 rounded-full"
         />
-        <div className="flex items-center justify-between bg-slate-100 rounded-xl text-sm px-6py-2 w-full">
+        <div className="flex items-center justify-between bg-slate-100 rounded-xl text-sm px-6 py-2 w-full">
           <input
             type="text"
             placeholder="Write a comment..."
-            className="border border-gray-300 rounded-md p-2 w-full"
+            className="bg-transparent outline-none flex-1"
           />
           <BsEmojiAstonishedFill
             width={16}
