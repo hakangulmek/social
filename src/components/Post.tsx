@@ -3,6 +3,7 @@ import { MdOutlineMoreHoriz } from "react-icons/md";
 import { BiSolidLike } from "react-icons/bi";
 import { FaComment } from "react-icons/fa";
 import { FaShare } from "react-icons/fa";
+import Comments from "./Comments";
 const Post = () => {
   return (
     <div className="flex flex-col gap-4">
@@ -64,7 +65,9 @@ const Post = () => {
             </span>
           </div>
         </div>
-        <div></div>
+      </div>
+      <div>
+        <Comments />
       </div>
     </div>
   );
